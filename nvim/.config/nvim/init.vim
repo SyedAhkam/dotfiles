@@ -48,11 +48,18 @@ call dein#begin('/home/syed/.dein')
 " Let dein manage dein
 call dein#add('/home/syed/.dein/repos/github.com/Shougo/dein.vim')
 
+" Add dein UI
+call dein#add('wsdjeg/dein-ui.vim')
+
 " Add or remove your plugins here like this:
 call dein#add('nvim-telescope/telescope.nvim') " fuzzy finder
 call dein#add('folke/tokyonight.nvim') " colorscheme
 call dein#add('kyazdani42/nvim-web-devicons') " spaceline depends on this
 call dein#add('glepnir/spaceline.vim') " status line
+call dein#add('mhinz/vim-startify') " start page
+
+" Treesitter specific plugins
+call dein#add('nvim-treesitter/nvim-treesitter')
 
 call dein#end()
 
@@ -61,7 +68,7 @@ syntax enable
 
 " If you want to install not installed plugins on startup.
 if dein#check_install()
-  call dein#install()
+  :DeinUpdate
 endif
 
 "End dein Scripts-------------------------
@@ -73,3 +80,15 @@ colorscheme tokyonight
 " Customize statusline
 let g:spaceline_seperate_style = 'arrow'
 let g:spaceline_colorscheme = 'nord' " tokyonight not supported :( the closest is nord
+
+" Customize start page
+"let g:startify_custom_header = startify#pad(split(system('figlet -w 100 SyedAhkam'), '\n'))
+"let g:startify_custom_header = startify#pad(split(system('cowsay -f tux UwU'), '\n'))
+
+" Neovide specific config
+if exists('g:neovide')
+    "set guifont=Iosevka\ Nerd\ Font:h8
+    "set guifont=MesloLGS\ NF:h9
+    set guifont=Delugia\ Nerd\ Font
+endif
+
