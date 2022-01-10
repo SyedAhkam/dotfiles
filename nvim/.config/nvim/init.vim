@@ -164,7 +164,7 @@ require("bufferline").setup{
             return " " .. icon .. count
         end,
         custom_areas = {
-            right = function() return {text = "hi" , guifg = "#f7768e"} end
+            right = function() return {{text = "Vim <3" , guifg = "#c0caf5"}} end
         }
     }
 }
