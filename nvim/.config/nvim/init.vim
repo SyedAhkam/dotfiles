@@ -74,16 +74,22 @@ call dein#add('wsdjeg/dein-ui.vim')
 
 " Add or remove your plugins here like this:
 call dein#add('folke/tokyonight.nvim') " colorscheme
-call dein#add('glepnir/spaceline.vim') " status line
+"call dein#add('SyedAhkam/spaceline.vim', {'rev': 'tokyonight-colorscheme'}) " status line (forked to add tokyonight colorscheme)
+call dein#add('glepnir/spaceline.vim') " status line 
 call dein#add('mhinz/vim-startify') " start page
 call dein#add('akinsho/bufferline.nvim') " bufferline
 call dein#add('norcalli/nvim-colorizer.lua') " colorizer
 call dein#add('steelsojka/pears.nvim') " bracket pair completion
-call dein#add('akinsho/toggleterm.nvim') " better term
-call dein#add('lukas-reineke/headlines.nvim') " better markdown headlines
+"call dein#add('akinsho/toggleterm.nvim') " better term
+call dein#add('voldikss/vim-floaterm') " better term
+"call dein#add('lukas-reineke/headlines.nvim') " better markdown headlines
 call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
 					\ 'build': 'sh -c "cd app && yarn install"' }) " markdown preview
 call dein#add('preservim/nerdcommenter') " commenting plugin
+call dein#add('folke/which-key.nvim') " show keybinds
+call dein#add('folke/twilight.nvim') " increase efficiency
+call dein#add('glacambre/firenvim', { 'hook_post_update': { _ -> firenvim#install(0) } }) " Embed nvim inside browser
+call dein#add('rcarriga/nvim-notify') " better notifications
 
 " Telescope specific plugins
 call dein#add('nvim-telescope/telescope-fzf-native.nvim')
@@ -101,12 +107,12 @@ call dein#add('nvim-treesitter/nvim-treesitter')
 
 " LSP specific plugins
 call dein#add('neovim/nvim-lspconfig')
-call dein#add('ms-jpq/coq_nvim') " autocomplete
+call dein#add('ms-jpq/coq_nvim', {'build': 'python -m coq deps'}) " autocomplete
 call dein#add('ms-jpq/coq.artifacts')
 
 " Language specific plugins
-" Rust
-call dein#add('simrat39/rust-tools.nvim')
+call dein#add('simrat39/rust-tools.nvim') " rust
+call dein#add('alderz/smali-vim') " support for smali files
 
 call dein#end()
 
@@ -126,6 +132,7 @@ colorscheme tokyonight
 
 " Customize statusline
 let g:spaceline_seperate_style = 'arrow'
+"let g:spaceline_colorscheme = 'tokyonight' " tokyonight not supported :( the closest is nord
 let g:spaceline_colorscheme = 'nord' " tokyonight not supported :( the closest is nord
 
 " Customize start page
@@ -137,7 +144,8 @@ if exists('g:neovide')
     "set guifont=Iosevka\ Nerd\ Font:h8
     "set guifont=MesloLGS\ NF:h9
     "set guifont=Delugia\ Nerd\ Font:h1
-    set guifont=Firacode\ Nerd\ Font:h1
+    set guifont=Firacode\ Nerd\ Font:h9
+    "set guifont=*
 endif
 
 " Customize nvim-tree
@@ -164,7 +172,7 @@ require("bufferline").setup{
             return " " .. icon .. count
         end,
         custom_areas = {
-            right = function() return {{text = "Vim <3" , guifg = "#c0caf5"}} end
+            right = function() return {{text = "Syed <3 nvim" , guifg = "#c0caf5"}} end
         }
     }
 }
@@ -182,6 +190,30 @@ nnoremap <silent>bd :BufferLineSortByDirectory<CR>
 
 nnoremap <silent>bq :bdelete<cr>
 
+" Setup Treesitter
+
+"set foldmethod=expr
+"set foldexpr=nvim_treesitter#foldexpr()
+
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = true,
+  },
+}
+
+require'nvim-treesitter.configs'.setup {
+  indent = {
+    enable = true
+  }
+}
+EOF
+
 " Enable Colorizer
 lua require'colorizer'.setup()
 
@@ -189,14 +221,16 @@ lua require'colorizer'.setup()
 lua require "pears".setup()
 
 " Enable Headlines
-lua require("headlines").setup()
+"lua require("headlines").setup()
 
-" Setup ToggleTerm
-lua << EOF
-require("toggleterm").setup{
-    shell="fish"
-}
-EOF
+" Setup Floaterm
+let g:floaterm_shell = "fish"
+let g:floaterm_height = 0.9
+let g:floaterm_keymap_new    = '<F7>'
+let g:floaterm_keymap_prev   = '<F8>'
+let g:floaterm_keymap_next   = '<F9>'
+let g:floaterm_keymap_toggle = '<F12>'
+
 nnoremap <leader>t <cmd>:ToggleTerm<CR> 
 tnoremap <ESC>t<cmd>:ToggleTerm<CR>
 
@@ -240,4 +274,39 @@ vim.g.coq_settings = {
     ['auto_start'] = true,
     ['keymap.jump_to_mark'] = '<c-f>'
 }
+EOF
+
+" Configure which key
+lua << EOF
+require("which-key").setup()
+EOF
+
+" Custom telescope picker for moji
+lua << EOF
+moji = function()
+  local actions = require("telescope.actions")
+  local action_state = require("telescope.actions.state")
+  local pickers = require("telescope.pickers")
+  local finders = require("telescope.finders")
+  local sorters = require("telescope.sorters")
+
+  local on_enter = function(prompt_buffer)
+    local selected = action_state.get_selected_entry()
+  end
+
+  local opts = {
+      prompt_title = "Moji",
+      finder = finders.new_oneshot_job({'moji', '--raw', 'sparkles'}),
+      sorter = sorters.get_generic_fuzzy_sorter(),
+      attach_mappings = function(prompt_buffer, map)
+        map("i", "<CR>", on_enter)
+
+        return true
+      end,
+  }
+
+  pickers.new({}, opts):find()
+end
+
+vim.api.nvim_set_keymap("n", "<Leader>fe", "v:lua.moji()", {})
 EOF
