@@ -72,6 +72,13 @@
     EDITOR = "vim";
   };
 
+  programs.git = {
+    enable = true;
+    userName  = "Syed Ahkam";
+    userEmail = "smahkam57@gmail.com";
+  };
+
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
