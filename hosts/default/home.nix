@@ -72,6 +72,11 @@
     EDITOR = "vim";
   };
 
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
+
+  # ----------------------------- Programs ----------------------------------
+
   programs.git = {
     enable = true;
     userName  = "Syed Ahkam";
@@ -85,7 +90,9 @@
     interactiveShellInit = "starship init fish | source";
   };
 
+  programs.emacs = {
+    enable = true;
+    package = pkgs.emacs;
+  };
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }
