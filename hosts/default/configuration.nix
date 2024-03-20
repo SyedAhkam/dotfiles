@@ -115,6 +115,7 @@
     wget
     git
     file
+    nixfmt
   ];
 
   # Necessarry for completions provided by Nixpkgs
