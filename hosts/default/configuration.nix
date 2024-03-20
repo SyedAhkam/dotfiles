@@ -5,11 +5,10 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -93,16 +92,14 @@
     packages = with pkgs; [
       firefox
       kate
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
   # Home manager
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
-    users = {
-      "syed" = import ./home.nix;
-    };
+    users = { "syed" = import ./home.nix; };
   };
 
   # Allow unfree packages
@@ -116,18 +113,22 @@
     git
     file
     nixfmt
+    cmake
+    gnumake
+    gcc
+    libtool
   ];
 
   # Necessarry for completions provided by Nixpkgs
   #programs.fish.enable = true;
   programs.bash = {
-  interactiveShellInit = ''
+    interactiveShellInit = ''
       if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
       then
       shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
       exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
       fi
-  '';
+    '';
   };
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -68,9 +68,7 @@
   #
   #  /etc/profiles/per-user/syed/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    EDITOR = "vim";
-  };
+  home.sessionVariables = { EDITOR = "vim"; };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -79,7 +77,7 @@
 
   programs.git = {
     enable = true;
-    userName  = "Syed Ahkam";
+    userName = "Syed Ahkam";
     userEmail = "smahkam57@gmail.com";
   };
 
