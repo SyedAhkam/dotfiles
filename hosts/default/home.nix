@@ -78,6 +78,13 @@
     userEmail = "smahkam57@gmail.com";
   };
 
+  programs.starship.enable = true;
+
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = "starship init fish | source";
+  };
+
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
