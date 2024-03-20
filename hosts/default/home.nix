@@ -95,4 +95,12 @@
     package = pkgs.emacs;
   };
 
+  # -------------------------- Desktop Files -----------------------------
+
+  xdg.desktopEntries.doom-emacs = {
+    name = "Doom Emacs";
+    exec = "SHELL=fish DOOMDIR=/home/syed/dotfiles/doom emacs %F";
+    icon = "emacs";
+    comment = "Edit text";
+  };
 }
