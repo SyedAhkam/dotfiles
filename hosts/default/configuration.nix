@@ -44,8 +44,18 @@
     LC_TIME = "en_IN";
   };
 
+  # Enable OpenGL
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+
   # Enable the windowing system. NOTE: xserver is a blanket term for GUI stuff & doesnt necessarily mean X11
   services.xserver.enable = true;
+
+  # Load nvidia driver for Xorg and Wayland
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
@@ -118,6 +128,7 @@
     gcc
     libtool
     ripgrep
+    glxinfo
   ];
 
   # Necessarry for completions provided by Nixpkgs
