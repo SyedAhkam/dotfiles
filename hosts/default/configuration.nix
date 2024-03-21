@@ -129,6 +129,8 @@
     libtool
     ripgrep
     glxinfo
+    neofetch
+    ocs-url
   ];
 
   # Necessarry for completions provided by Nixpkgs
