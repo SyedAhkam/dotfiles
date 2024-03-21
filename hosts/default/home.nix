@@ -15,6 +15,9 @@
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
+  # Workaround to allow unfree packages using home-manager
+  nixpkgs.config.allowUnfreePredicate = (pkg: true);
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
@@ -23,8 +26,9 @@
     pkgs.hello
 
     pkgs.gh # github-cli
+    pkgs.obsidian
 
-    # # It is sometimes useful to fine-tune packages, for example, by applying
+    # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
     # # fonts?
@@ -100,5 +104,11 @@
     exec = "SHELL=fish DOOMDIR=/home/syed/dotfiles/doom emacs %F";
     icon = "emacs";
     comment = "Edit text";
+  };
+
+  # ------------------------- Services -----------------------------------
+  services.syncthing = {
+    enable = true;
+    extraOptions = [ "--no-default-folder" ];
   };
 }

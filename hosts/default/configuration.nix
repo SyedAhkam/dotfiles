@@ -117,6 +117,7 @@
     gnumake
     gcc
     libtool
+    ripgrep
   ];
 
   # Necessarry for completions provided by Nixpkgs
