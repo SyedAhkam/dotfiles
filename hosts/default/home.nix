@@ -27,6 +27,9 @@
 
     pkgs.gh # github-cli
     pkgs.obsidian
+    pkgs.vivaldi
+    pkgs.spotify
+    pkgs.syncthingtray
 
     # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -109,6 +112,7 @@
   # ------------------------- Services -----------------------------------
   services.syncthing = {
     enable = true;
+    tray.enable = true;
     extraOptions = [ "--no-default-folder" ];
   };
 }
