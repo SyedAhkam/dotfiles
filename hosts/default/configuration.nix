@@ -99,11 +99,11 @@
     isNormalUser = true;
     description = "Syed Ahkam";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-      kate
-      #  thunderbird
-    ];
+    packages = with pkgs;
+      [
+        kate
+        #  thunderbird
+      ];
   };
 
   # Home manager
