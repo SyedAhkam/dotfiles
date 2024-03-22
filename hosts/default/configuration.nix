@@ -133,6 +133,7 @@
     ocs-url
     clang
     mold
+    pkg-config
   ];
 
   # Necessarry for completions provided by Nixpkgs
