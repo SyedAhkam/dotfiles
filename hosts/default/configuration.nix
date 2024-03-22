@@ -134,6 +134,9 @@
     clang
     mold
     pkg-config
+    vulkan-loader
+    vulkan-validation-layers
+    vulkan-tools
   ];
 
   # Necessarry for completions provided by Nixpkgs
