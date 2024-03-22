@@ -21,8 +21,8 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
+    # Adds the 'hello' command to your environment. It prints a friendly
+    # "Hello, world!" when run.
     pkgs.hello
 
     pkgs.gh # github-cli
@@ -32,6 +32,7 @@
     pkgs.syncthingtray
 
     pkgs.rustup
+    pkgs.nil # nix lsp
 
     # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
