@@ -132,6 +132,7 @@
     neofetch
     ocs-url
     clang
+    mold
   ];
 
   # Necessarry for completions provided by Nixpkgs
