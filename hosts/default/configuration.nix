@@ -131,6 +131,7 @@
     glxinfo
     neofetch
     ocs-url
+    clang
   ];
 
   # Necessarry for completions provided by Nixpkgs
