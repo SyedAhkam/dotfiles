@@ -34,6 +34,7 @@
 
     pkgs.rustup
     pkgs.nil # nix lsp
+    pkgs.corepack_20
 
     pkgs.heroic
     pkgs.gamemode
