@@ -137,6 +137,7 @@
     vulkan-loader
     vulkan-validation-layers
     vulkan-tools
+    ispell # required for spell-check in few programs
   ];
 
   # Necessarry for completions provided by Nixpkgs
