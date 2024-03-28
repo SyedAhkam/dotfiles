@@ -31,6 +31,8 @@
     pkgs.spotify
     pkgs.syncthingtray
     pkgs.cloudflare-warp
+    pkgs.warp-terminal
+    pkgs.falkon
 
     pkgs.rustup
     pkgs.nil # nix lsp
