@@ -34,6 +34,8 @@
     pkgs.warp-terminal
     pkgs.falkon
 
+    pkgs.kcalc
+
     pkgs.rustup
     pkgs.nil # nix lsp
     pkgs.corepack_20
