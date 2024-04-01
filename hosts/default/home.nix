@@ -33,6 +33,7 @@
     pkgs.cloudflare-warp
     pkgs.warp-terminal
     pkgs.falkon
+    pkgs.arduino-ide
 
     pkgs.kcalc
 
