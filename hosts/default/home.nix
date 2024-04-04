@@ -34,6 +34,9 @@
     pkgs.warp-terminal
     pkgs.falkon
     pkgs.arduino-ide
+    pkgs.figma-linux
+    pkgs.scrcpy
+    pkgs.android-tools
 
     pkgs.kcalc
 
