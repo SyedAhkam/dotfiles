@@ -142,6 +142,7 @@
     vulkan-tools
     ispell # required for spell-check in few programs
     devenv
+    direnv
   ];
 
   # Necessarry for completions provided by Nixpkgs

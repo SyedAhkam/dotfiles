@@ -111,7 +111,10 @@
 
   programs.fish = {
     enable = true;
-    interactiveShellInit = "starship init fish | source";
+    interactiveShellInit = ''
+      starship init fish | source
+      direnv hook fish | source
+    '';
   };
 
   programs.emacs = {
