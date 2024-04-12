@@ -36,14 +36,14 @@
     pkgs.arduino-ide
     pkgs.figma-linux
     pkgs.scrcpy
-    pkgs.android-tools
-
     pkgs.kcalc
+    pkgs.inkscape
 
     pkgs.rustup
     pkgs.nil # nix lsp
     pkgs.corepack_20
     pkgs.nodejs_20
+    pkgs.android-tools
 
     pkgs.heroic
     pkgs.gamemode
