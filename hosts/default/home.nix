@@ -38,6 +38,7 @@
     pkgs.scrcpy
     pkgs.kcalc
     pkgs.inkscape
+    pkgs.kdenlive
 
     pkgs.rustup
     pkgs.nil # nix lsp
