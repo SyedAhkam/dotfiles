@@ -39,6 +39,7 @@
     pkgs.kcalc
     pkgs.inkscape
     pkgs.kdenlive
+    pkgs.haruna
 
     pkgs.rustup
     pkgs.nil # nix lsp
