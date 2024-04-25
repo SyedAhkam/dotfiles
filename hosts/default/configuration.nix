@@ -143,6 +143,13 @@
     ispell # required for spell-check in few programs
     devenv
     direnv
+    cachix # helps speed up builds
+    gamemode # optimise system for gaming
+    lutris
+
+    # Nix gaming
+    inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
+    inputs.nix-gaming.packages.${pkgs.system}.wine-ge
   ];
 
   # Necessarry for completions provided by Nixpkgs
