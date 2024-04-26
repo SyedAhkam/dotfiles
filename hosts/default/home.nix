@@ -40,6 +40,8 @@
     pkgs.inkscape
     pkgs.kdenlive
     pkgs.haruna
+    pkgs.telegram-desktop
+    pkgs.discord
 
     pkgs.rustup
     pkgs.nil # nix lsp
