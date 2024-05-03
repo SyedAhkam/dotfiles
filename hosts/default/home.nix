@@ -20,6 +20,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
+  # TODO: organize these better
   home.packages = [
     # Adds the 'hello' command to your environment. It prints a friendly
     # "Hello, world!" when run.
@@ -42,6 +43,7 @@
     pkgs.haruna
     pkgs.telegram-desktop
     pkgs.discord
+    pkgs.libreoffice-qt
 
     pkgs.rustup
     pkgs.nil # nix lsp
@@ -51,6 +53,7 @@
 
     pkgs.heroic
     pkgs.rustdesk
+    pkgs.kcolorchooser
 
     # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
