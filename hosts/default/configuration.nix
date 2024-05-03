@@ -116,36 +116,50 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    # Text editors
+    vim
     kate
+
+    # Common CLI tools
     wget
     git
     file
-    nixfmt
+    ripgrep
+    glxinfo
+    neofetch
+
+    # Nix stuff
+    nixfmt # formatter for nix files
+    cachix # helps speed up builds
+
+    # Compilers & build tools
     cmake
     gnumake
     gcc
     libtool
-    ripgrep
-    glxinfo
-    neofetch
-    ocs-url
     clang
     mold
     pkg-config
+
+    # GFX
     vulkan-loader
     vulkan-validation-layers
     vulkan-tools
-    ispell # required for spell-check in few programs
+
+    # Devshell helpers
     devenv
     direnv
-    cachix # helps speed up builds
+
+    # Game stuff
     gamemode # optimise system for gaming
     lutris
 
-    # Nix gaming
     inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
     inputs.nix-gaming.packages.${pkgs.system}.wine-ge
+
+    # Others
+    ocs-url
+    ispell # required for spell-check in few programs
   ];
 
   # Workaround to use fish wherever possible
