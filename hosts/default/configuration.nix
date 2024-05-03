@@ -102,11 +102,6 @@
     isNormalUser = true;
     description = "Syed Ahkam";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs;
-      [
-        kate
-        #  thunderbird
-      ];
   };
 
   # Home manager
@@ -122,6 +117,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    kate
     wget
     git
     file
@@ -152,8 +148,7 @@
     inputs.nix-gaming.packages.${pkgs.system}.wine-ge
   ];
 
-  # Necessarry for completions provided by Nixpkgs
-  #programs.fish.enable = true;
+  # Workaround to use fish wherever possible
   programs.bash = {
     interactiveShellInit = ''
       if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
@@ -164,7 +159,7 @@
     '';
   };
 
-  # Sadly can't be installed user-wide
+  # Sadly steam can't be installed user-wide
   programs.steam = {
     enable = true;
     gamescopeSession.enable = true;

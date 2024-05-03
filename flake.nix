@@ -1,5 +1,5 @@
 {
-  description = "Nixos config flake";
+  description = "NixOS config flake";
 
   nixConfig = {
     extra-substituters = [ "https://nix-gaming.cachix.org" ];
@@ -11,7 +11,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixos-hardware = { url = "github:NixOS/nixos-hardware/master"; };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nix-gaming.url = "github:fufexan/nix-gaming";
 
     home-manager = {

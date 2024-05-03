@@ -20,23 +20,14 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  # TODO: organize these better
   home.packages = [
-    # Adds the 'hello' command to your environment. It prints a friendly
-    # "Hello, world!" when run.
-    pkgs.hello
-
-    pkgs.gh # github-cli
+    # Desktop Apps
     pkgs.obsidian
     pkgs.vivaldi
     pkgs.spotify
-    pkgs.syncthingtray
-    pkgs.cloudflare-warp
     pkgs.warp-terminal
     pkgs.falkon
-    pkgs.arduino-ide
     pkgs.figma-linux
-    pkgs.scrcpy
     pkgs.kcalc
     pkgs.inkscape
     pkgs.kdenlive
@@ -44,15 +35,24 @@
     pkgs.telegram-desktop
     pkgs.discord
     pkgs.libreoffice-qt
+    pkgs.rustdesk
 
+    # Dev tools & SDKs
+    pkgs.gh # github-cli
+    pkgs.scrcpy
     pkgs.rustup
     pkgs.nil # nix lsp
     pkgs.corepack_20
     pkgs.nodejs_20
     pkgs.android-tools
+    pkgs.arduino-ide
 
+    # Entertainment / Gaming
     pkgs.heroic
-    pkgs.rustdesk
+
+    # Others
+    pkgs.syncthingtray
+    pkgs.cloudflare-warp
     pkgs.kcolorchooser
 
     # It is sometimes useful to fine-tune packages, for example, by applying
