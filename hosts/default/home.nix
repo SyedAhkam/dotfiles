@@ -23,7 +23,7 @@
   home.packages = [
     # Desktop Apps
     pkgs.obsidian
-    pkgs.vivaldi
+    pkgs.chromium
     pkgs.spotify
     pkgs.warp-terminal
     pkgs.falkon
@@ -36,6 +36,7 @@
     pkgs.discord
     pkgs.libreoffice-qt
     pkgs.rustdesk
+    pkgs.element-desktop
 
     # Dev tools & SDKs
     pkgs.gh # github-cli

@@ -160,6 +160,9 @@
     # Others
     ocs-url
     ispell # required for spell-check in few programs
+
+    # Custom
+    pkgs.vivaldi-fix.vivaldi # custom wrapQtAppHook until upstream figures it out
   ];
 
   # Workaround to use fish wherever possible
