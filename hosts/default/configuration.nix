@@ -130,6 +130,7 @@
 
     # Nix stuff
     nixfmt # formatter for nix files
+    alejandra # another formatter
     cachix # helps speed up builds
 
     # Compilers & build tools
