@@ -7,3 +7,10 @@ Features a flakes + home-manager based setup.
 ## Workflow
 
 Make changes -> `./rebuild.sh` -> Repeat.
+
+## Update Flake lock
+
+```sh
+nix flake update
+```
+
