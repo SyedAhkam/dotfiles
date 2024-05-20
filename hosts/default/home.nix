@@ -47,6 +47,7 @@
     pkgs.nodejs_20
     pkgs.android-tools
     pkgs.arduino-ide
+    pkgs.beekeeper-studio
 
     # Entertainment / Gaming
     pkgs.heroic
