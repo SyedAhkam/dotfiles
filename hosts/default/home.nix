@@ -51,6 +51,7 @@
 
     # Entertainment / Gaming
     pkgs.heroic
+    pkgs.superTuxKart
 
     # Others
     pkgs.syncthingtray
