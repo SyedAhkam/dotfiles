@@ -10,8 +10,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-vivaldi-fix.url =
-      "github:SyedAhkam/nixpkgs/wrap-qt-app-vivaldi"; # temporary
+    nixpkgs-vivaldi-fix.url = "github:SyedAhkam/nixpkgs/wrap-qt-app-vivaldi"; # temporary
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nix-gaming.url = "github:fufexan/nix-gaming";
@@ -22,7 +21,13 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-vivaldi-fix, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-vivaldi-fix,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
       overlay-vivaldi-fix = final: prev: {
@@ -31,15 +36,21 @@
           config.allowUnfree = true;
         };
       };
-    in {
+    in
+    {
       nixosConfigurations.default = nixpkgs.lib.nixosSystem {
         inherit system;
 
-        specialArgs = { inherit inputs; };
+        specialArgs = {
+          inherit inputs;
+        };
         modules = [
-          ({ config, pkgs, ... }: {
-            nixpkgs.overlays = [ overlay-vivaldi-fix ];
-          })
+          (
+            { config, pkgs, ... }:
+            {
+              nixpkgs.overlays = [ overlay-vivaldi-fix ];
+            }
+          )
 
           ./hosts/default/configuration.nix
           inputs.home-manager.nixosModules.default

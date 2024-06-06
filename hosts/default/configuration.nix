@@ -2,10 +2,16 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
   ];
@@ -17,7 +23,10 @@
   networking.hostName = "syed-nix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -97,19 +106,30 @@
   # services.xserver.libinput.enable = true;
 
   # Trusted users
-  nix.settings.trusted-users = [ "root" "syed" ];
+  nix.settings.trusted-users = [
+    "root"
+    "syed"
+  ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.syed = {
     isNormalUser = true;
     description = "Syed Ahkam";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
   };
 
   # Home manager
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = { "syed" = import ./home.nix; };
+    extraSpecialArgs = {
+      inherit inputs;
+    };
+    users = {
+      "syed" = import ./home.nix;
+    };
   };
 
   # Allow unfree packages
@@ -123,6 +143,7 @@
     kate
 
     # Common CLI tools
+    tree
     wget
     git
     file
@@ -183,10 +204,8 @@
   programs.steam = {
     enable = true;
     gamescopeSession.enable = true;
-    remotePlay.openFirewall =
-      true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall =
-      true; # Open ports in the firewall for Source Dedicated Server
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
   # Enable docker
@@ -211,8 +230,14 @@
   # Open ports in the firewall.
   # 43210 is used by bombsquad
   # 8081 is used by expo for react native dev
-  networking.firewall.allowedTCPPorts = [ 43210 8081 ];
-  networking.firewall.allowedUDPPorts = [ 43210 8081 ];
+  networking.firewall.allowedTCPPorts = [
+    43210
+    8081
+  ];
+  networking.firewall.allowedUDPPorts = [
+    43210
+    8081
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
