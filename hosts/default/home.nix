@@ -48,6 +48,7 @@
     pkgs.android-tools
     pkgs.arduino-ide
     pkgs.beekeeper-studio
+    pkgs.vscode-fhs
 
     # Entertainment / Gaming
     pkgs.heroic
