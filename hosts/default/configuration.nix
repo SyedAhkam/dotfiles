@@ -210,8 +210,9 @@
 
   # Open ports in the firewall.
   # 43210 is used by bombsquad
-  networking.firewall.allowedTCPPorts = [ 43210 ];
-  networking.firewall.allowedUDPPorts = [ 43210 ];
+  # 8081 is used by expo for react native dev
+  networking.firewall.allowedTCPPorts = [ 43210 8081 ];
+  networking.firewall.allowedUDPPorts = [ 43210 8081 ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
