@@ -131,7 +131,7 @@
     neofetch
 
     # Nix stuff
-    nixfmt # formatter for nix files
+    nixfmt-rfc-style # formatter for nix files
     alejandra # another formatter
     cachix # helps speed up builds
 
