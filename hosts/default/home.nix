@@ -53,6 +53,7 @@
     # Entertainment / Gaming
     pkgs.heroic
     pkgs.superTuxKart
+    pkgs.bombsquad
 
     # Others
     pkgs.syncthingtray
