@@ -59,6 +59,13 @@
     pkgs.cloudflare-warp
     pkgs.kcolorchooser
 
+    # Vivaldi with forceful qt app wrapping
+    (pkgs.vivaldi.overrideAttrs (oldAttrs: {
+      dontWrapQtApps = false;
+      dontPatchELF = true;
+      nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ pkgs.kdePackages.wrapQtAppsHook ];
+    }))
+
     # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
