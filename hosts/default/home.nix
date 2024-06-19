@@ -37,6 +37,7 @@
     pkgs.libreoffice-qt
     pkgs.rustdesk
     pkgs.element-desktop
+    pkgs.slack
 
     # Dev tools & SDKs
     pkgs.gh # github-cli
