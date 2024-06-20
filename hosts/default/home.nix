@@ -38,6 +38,7 @@
     pkgs.rustdesk
     pkgs.element-desktop
     pkgs.slack
+    pkgs.piper
 
     # Dev tools & SDKs
     pkgs.gh # github-cli
