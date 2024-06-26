@@ -180,6 +180,7 @@
     # Game stuff
     gamemode # optimise system for gaming
     lutris
+    mangohud
 
     inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
     inputs.nix-gaming.packages.${pkgs.system}.wine-ge
