@@ -105,6 +105,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # This is for Piper
+  services.ratbagd.enable = true;
+
   # Trusted users
   nix.settings.trusted-users = [
     "root"
