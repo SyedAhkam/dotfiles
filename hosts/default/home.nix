@@ -127,6 +127,13 @@
     enable = true;
     userName = "Syed Ahkam";
     userEmail = "smahkam57@gmail.com";
+    extraConfig = {
+      # This helps enable multiple git accounts
+      includeIf."gitdir:~/work/" = {
+        name = "SyedRoot";
+        email = "syed@rootpe.com";
+      };
+    };
   };
 
   programs.starship.enable = true;
