@@ -97,6 +97,12 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+
+    "work/.gitconfig-work".text = ''
+      [user]
+        email = "syed@rootpe.com"
+        name = "SyedRoot"
+    '';
   };
 
   # Home Manager can also manage your environment variables through
@@ -129,9 +135,8 @@
     userEmail = "smahkam57@gmail.com";
     extraConfig = {
       # This helps enable multiple git accounts
-      includeIf."gitdir:~/work/" = {
-        name = "SyedRoot";
-        email = "syed@rootpe.com";
+      includeIf."gitdir:/home/${config.home.username}/work/" = {
+        path = "/home/${config.home.username}/work/.gitconfig-work";
       };
     };
   };
