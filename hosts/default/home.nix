@@ -20,50 +20,50 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     # Desktop Apps
-    pkgs.obsidian
-    pkgs.chromium
-    pkgs.spotify
-    pkgs.warp-terminal
-    pkgs.falkon
-    pkgs.figma-linux
-    pkgs.kcalc
-    pkgs.inkscape
-    pkgs.kdenlive
-    pkgs.haruna
-    pkgs.telegram-desktop
-    pkgs.discord
-    pkgs.libreoffice-qt
-    pkgs.rustdesk
-    pkgs.element-desktop
-    pkgs.slack
-    pkgs.piper
+    obsidian
+    chromium
+    spotify
+    warp-terminal
+    falkon
+    figma-linux
+    kcalc
+    inkscape
+    kdenlive
+    haruna
+    telegram-desktop
+    discord
+    libreoffice-qt
+    rustdesk
+    element-desktop
+    slack
+    piper
 
     # Dev tools & SDKs
-    pkgs.gh # github-cli
-    pkgs.scrcpy
-    pkgs.rustup
-    pkgs.nil # nix lsp
-    pkgs.corepack_20
-    pkgs.nodejs_20
-    pkgs.android-tools
-    pkgs.arduino-ide
-    pkgs.beekeeper-studio
-    pkgs.vscode-fhs
+    gh # github-cli
+    scrcpy
+    rustup
+    nil # nix lsp
+    corepack_20
+    nodejs_20
+    android-tools
+    arduino-ide
+    beekeeper-studio
+    vscode-fhs
 
     # Entertainment / Gaming
-    pkgs.heroic
-    pkgs.superTuxKart
-    pkgs.bombsquad
+    heroic
+    superTuxKart
+    bombsquad
 
     # Others
-    pkgs.syncthingtray
-    pkgs.cloudflare-warp
-    pkgs.kcolorchooser
+    syncthingtray
+    cloudflare-warp
+    kcolorchooser
 
     # Vivaldi with forceful qt app wrapping
-    (pkgs.vivaldi.overrideAttrs (oldAttrs: {
+    (vivaldi.overrideAttrs (oldAttrs: {
       dontWrapQtApps = false;
       dontPatchELF = true;
       nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ pkgs.kdePackages.wrapQtAppsHook ];
@@ -75,7 +75,7 @@
     # # fonts?
     # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
 
-    (pkgs.writeShellScriptBin "prime-run" ''
+    (writeShellScriptBin "prime-run" ''
       export __NV_PRIME_RENDER_OFFLOAD=1
       export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
       export __GLX_VENDOR_LIBRARY_NAME=nvidia
