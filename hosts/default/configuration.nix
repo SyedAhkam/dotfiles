@@ -54,10 +54,9 @@
   };
 
   # Enable OpenGL
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   # Enable the windowing system. NOTE: xserver is a blanket term for GUI stuff & doesnt necessarily mean X11
