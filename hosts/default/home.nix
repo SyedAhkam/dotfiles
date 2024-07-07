@@ -52,6 +52,7 @@
     beekeeper-studio
     vscode-fhs
     insomnia
+    zed-editor
 
     # Entertainment / Gaming
     heroic
