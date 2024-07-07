@@ -51,6 +51,7 @@
     arduino-ide
     beekeeper-studio
     vscode-fhs
+    insomnia
 
     # Entertainment / Gaming
     heroic
