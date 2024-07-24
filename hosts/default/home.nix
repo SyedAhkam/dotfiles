@@ -54,6 +54,11 @@
     insomnia
     zed-editor
 
+    # Google Cloud SDK
+    (pkgs.google-cloud-sdk.withExtraComponents (
+      with pkgs.google-cloud-sdk.components; [ gke-gcloud-auth-plugin ]
+    ))
+
     # Entertainment / Gaming
     heroic
     superTuxKart
