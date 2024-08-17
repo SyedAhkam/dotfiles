@@ -44,7 +44,7 @@
     gh # github-cli
     scrcpy
     rustup
-    nil # nix lsp
+    nixd # nix lsp
     corepack_20
     nodejs_20
     android-tools
