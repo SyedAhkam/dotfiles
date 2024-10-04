@@ -54,3 +54,9 @@
 
 ;; Add centered window mode
 (package! centered-window)
+
+;; Add evil surround
+(package! evil-surround)
+
+;; Add evil numbers
+(package! evil-numbers)

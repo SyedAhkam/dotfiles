@@ -78,6 +78,9 @@
 ;; Set the docker compose command (the modern way)
 (setq docker-compose-command "docker compose")
 
+;; Enable evil surround mode everywhere
+(setq global-evil-surround-mode 1)
+
 ;; Set nixd as the LSP of choice for editing nix files
 (with-eval-after-load 'lsp-mode
   (lsp-register-client
