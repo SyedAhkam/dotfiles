@@ -44,6 +44,8 @@
     gh # github-cli
     scrcpy
     rustup
+    go
+    gopls
     nixd # nix lsp
     corepack_20
     nodejs_20
@@ -62,7 +64,6 @@
     # Entertainment / Gaming
     heroic
     superTuxKart
-    bombsquad
 
     # Others
     syncthingtray
