@@ -207,6 +207,9 @@
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
+  # Can't install this using home-manager either, requires manual port config
+  programs.kdeconnect.enable = true;
+
   # Enable docker
   virtualisation.docker.enable = true;
 
