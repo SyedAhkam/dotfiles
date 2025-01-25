@@ -180,7 +180,7 @@
     lutris
     mangohud
 
-    inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
+    # inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
     inputs.nix-gaming.packages.${pkgs.system}.wine-ge
 
     # Others
@@ -228,6 +228,7 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+  services.tailscale.enable = true;
 
   # Open ports in the firewall.
   # 43210 is used by bombsquad
@@ -235,10 +236,12 @@
   networking.firewall.allowedTCPPorts = [
     43210
     8081
+    5900
   ];
   networking.firewall.allowedUDPPorts = [
     43210
     8081
+    5900
   ];
 
   # This value determines the NixOS release from which the default
