@@ -35,7 +35,7 @@
     telegram-desktop
     discord
     libreoffice-qt
-    rustdesk
+    # rustdesk
     element-desktop
     slack
     piper
@@ -55,6 +55,9 @@
     vscode-fhs
     insomnia
     zed-editor
+    ocaml
+    ocamlPackages.ocaml-lsp
+    ocamlPackages.ocamlformat
 
     # Google Cloud SDK
     (pkgs.google-cloud-sdk.withExtraComponents (
