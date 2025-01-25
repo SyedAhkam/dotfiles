@@ -64,7 +64,7 @@
     # Entertainment / Gaming
     heroic
     superTuxKart
-    bombsquad # self-maintained
+    # bombsquad # self-maintained
 
     # Others
     syncthingtray
