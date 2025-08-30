@@ -1,3 +1,6 @@
 #/usr/bin/env sh
 
-sudo nixos-rebuild switch --flake "`pwd`#default"
+
+builder=$([[ $(uname) = "Darwin" ]] && echo "darwin-rebuild" || echo "nixos-rebuild")
+
+sudo "$builder" switch --flake "$(pwd)#default"
