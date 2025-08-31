@@ -60,6 +60,7 @@
 
   # Packages installed system wide
   environment.systemPackages = with pkgs; [ 
+    raycast
     ghostty-bin
     brave
     discord
