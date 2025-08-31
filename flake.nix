@@ -25,7 +25,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -41,20 +41,22 @@
        nixosConfigurations.default = nixpkgs.lib.nixosSystem {
          inherit system;
     
-        specialArgs = {
-          inherit inputs;
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/default/configuration.nix
+            inputs.home-manager.nixosModules.default
+            inputs.nixos-hardware.nixosModules.lenovo-ideapad-slim-5
+          ];
         };
-        modules = [
-          ./hosts/default/configuration.nix
-          inputs.home-manager.nixosModules.default
-          inputs.nixos-hardware.nixosModules.lenovo-ideapad-slim-5
-        ];
-      };
 
       darwinConfigurations.default = nix-darwin.lib.darwinSystem { 
-	system = system-darwin;
+        system = system-darwin;
 
-    	modules = [ ./hosts/darwin/configuration.nix ];
+        specialArgs = { inherit inputs; };
+        modules = [ 
+          ./hosts/darwin/configuration.nix
+          inputs.home-manager.darwinModules.default
+        ];
       };
     };
 }
