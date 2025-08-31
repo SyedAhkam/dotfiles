@@ -20,7 +20,7 @@
   home.file = {
     ".config/ghostty/config".text = ''
       shell-integration = fish
-      command = fish --login --interactive
+      #command = fish --login --interactive
     '';
   };
 

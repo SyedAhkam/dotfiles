@@ -62,7 +62,6 @@
   environment.systemPackages = with pkgs; [ 
     ghostty-bin
     brave
-    fish
     discord
     # cloudflare-warp not on mac
     # kde-connect
@@ -86,6 +85,9 @@
    enable = true; 
    casks = [ "steam" "visual-studio-code@insiders"];
   };
+
+  # Programs
+  programs.fish.enable = true;
 
   # User
   users.users.syed = {
