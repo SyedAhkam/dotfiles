@@ -60,6 +60,7 @@
 
   # Packages installed system wide
   environment.systemPackages = with pkgs; [ 
+    gh
     raycast
     ghostty-bin
     brave
@@ -84,7 +85,7 @@
   # Manage homebrew declaratively
   homebrew = {
    enable = true; 
-   casks = [ "steam" "visual-studio-code@insiders"];
+   casks = [ "steam" "visual-studio-code@insiders" "whatsapp"];
   };
 
   # Programs
