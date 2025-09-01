@@ -2,12 +2,14 @@
   description = "Syed's Nix{OS/Darwin} config flake";
 
   nixConfig = {
-    extra-substituters = [ "https://nix-gaming.cachix.org" ];
+    extra-substituters = [ "https://nix-gaming.cachix.org" "https://devenv.cachix.org" ];
     extra-trusted-public-keys = [
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+      "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
     ];
 
     experimental-features = ["nix-command" "flakes"];
+    trusted-users = [ "root" "syed" ];
   };
 
   inputs = {
