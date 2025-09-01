@@ -60,6 +60,7 @@
 
   # Packages installed system wide
   environment.systemPackages = with pkgs; [ 
+    neovim
     gh
     raycast
     ghostty-bin
@@ -80,12 +81,33 @@
     # whatsapp-for-mac build failure
     zed-editor
     # zen browser not in nixpkgs??
+
+    # compilers / interpretors / pms
+    nodejs_24
+    pnpm
+    bun
+
+    # nix ecosystem
+    devenv
+    cachix
+
+    # fish plugins
+    fishPlugins.nvm
   ];
 
   # Manage homebrew declaratively
   homebrew = {
    enable = true; 
-   casks = [ "steam" "visual-studio-code@insiders" "whatsapp"];
+   casks = [ 
+      "steam"
+      "visual-studio-code@insiders"
+      "whatsapp"
+      "notion"
+      "notion-calendar"
+      "notion-mail"
+      "tomatobar"
+      "beekeeper-studio"
+    ];
   };
 
   # Programs
