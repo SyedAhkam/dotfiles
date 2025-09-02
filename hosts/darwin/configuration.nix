@@ -86,6 +86,10 @@
     nodejs_24
     pnpm
     bun
+    rustup
+
+    # dev tools
+    sea-orm-cli
 
     # nix ecosystem
     devenv
@@ -111,6 +115,7 @@
       "tomatobar"
       "beekeeper-studio"
     ];
+    brews = [ "openssl@3" "pkg-config" ];
   };
 
   # Programs
