@@ -93,6 +93,9 @@
 
     # fish plugins
     fishPlugins.nvm
+
+    # custom
+    (callPackage (import ../../pkgs/decentraland.nix) {})
   ];
 
   # Manage homebrew declaratively
