@@ -21,10 +21,18 @@
     kitty
     pavucontrol
     gh
+    hyprlauncher
+    zed-editor
   ];
 
   # Files
   home.file = {};
+
+  # Out of store symlinks
+  xdg.configFile."hypr/hyprland.lua".source = config.lib.file.mkOutOfStoreSymlink "/home/syed/dotfiles/hyprland/hyprland.lua";
+  xdg.configFile."hypr/system.lua".source = config.lib.file.mkOutOfStoreSymlink "/home/syed/dotfiles/hyprland/system.lua";
+  xdg.configFile."hypr/keybinds.lua".source = config.lib.file.mkOutOfStoreSymlink "/home/syed/dotfiles/hyprland/keybinds.lua";
+  xdg.configFile."hypr/animations.lua".source = config.lib.file.mkOutOfStoreSymlink "/home/syed/dotfiles/hyprland/animations.lua";
 
   # Environment variables
   home.sessionVariables = {};

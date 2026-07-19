@@ -31,11 +31,23 @@
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia.open = true;
 
+  # Hostname
   networking.hostName = "syed-nix";
+
+  # Greetd
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = ''${pkgs.greetd}/bin/agreety --cmd "bash -l -c "start-hyprland""'';
+        user = "greeter";
+      };
+    };
+  };
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
- 
+
   # Enable bluetooth
   hardware.bluetooth.enable = true;
 
@@ -75,7 +87,7 @@
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
-    vim 
+    vim
     wget
   ];
 
@@ -113,4 +125,3 @@
   system.stateVersion = "26.05"; # Did you read the comment?
 
 }
-
